@@ -2,7 +2,7 @@ services:
   app:
     image: b3ckw1th/express-app:latest
     ports:
-      - "3000:3000" # Maps port 3000 of the container to port 3000 on your host
+      - "3000:8080"
     restart: unless-stopped
 
   watchtower:
