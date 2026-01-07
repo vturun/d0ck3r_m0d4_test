@@ -1,0 +1,14 @@
+services:
+  app:
+    image: b3ckw1th/express-app:latest
+    ports:
+      - "3000:3000" # Maps port 3000 of the container to port 3000 on your host
+    restart: unless-stopped
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30 # Polls for updates every 30 seconds
+    depends_on:
+      - app
